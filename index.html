@@ -1,27 +1,32 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Kyle in Italian – Voice Review</title>
+<title>Kyle in Italian – Voice D Improved</title>
 <meta name="robots" content="noindex">
 <style>
-:root{--bg:#f6f3ee;--card:#fff;--ink:#1f2328;--mute:#6b6f76;--line:#e6e0d6;--acc:#1f6f5c;--acc2:#e7f2ee;--pick:#f4b400}
-@media (prefers-color-scheme:dark){:root{--bg:#15171a;--card:#1f2226;--ink:#eceae6;--mute:#a1a5ab;--line:#33373d;--acc:#5cc2a6;--acc2:#20352f}}
+:root{--bg:#f6f3ee;--card:#fff;--ink:#1f2328;--mute:#6b6f76;--line:#e6e0d6;--acc:#1f6f5c;--acc2:#e7f2ee;--pick:#f4b400;--bad:#c0392b}
+@media (prefers-color-scheme:dark){:root{--bg:#15171a;--card:#1f2226;--ink:#eceae6;--mute:#a1a5ab;--line:#33373d;--acc:#5cc2a6;--acc2:#20352f;--bad:#e06b5f}}
 *{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
 main{max-width:640px;margin:0 auto;padding:16px 16px 120px}
 h1{font-size:1.5rem;margin:.4rem 0 .2rem}h2{font-size:1.05rem;margin:0 0 .6rem}
 p{margin:.4rem 0}.mute{color:var(--mute);font-size:.92rem}
+ul{margin:.3rem 0 .4rem;padding-left:1.2rem}li{margin:.2rem 0}
 .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;margin:14px 0}
 .it{font-size:1.05rem;font-style:italic;margin:0 0 10px}
 .num{display:inline-block;background:var(--acc2);color:var(--acc);border-radius:99px;padding:1px 9px;font-size:.8rem;font-weight:600;margin-bottom:6px}
+.stat{display:flex;gap:10px;margin:10px 0}.stat div{flex:1;background:var(--acc2);border-radius:12px;padding:10px;text-align:center}
+.stat b{display:block;font-size:1.35rem;color:var(--acc)}.stat span{font-size:.82rem;color:var(--mute)}
 .row{display:flex;align-items:center;gap:10px;padding:7px 0;border-top:1px solid var(--line)}
 .row.first{border-top:0}
 .play{flex:none;width:44px;height:44px;border-radius:50%;border:0;background:var(--acc);color:#fff;font-size:18px;cursor:pointer;display:grid;place-items:center}
-.play.on{background:#c0392b}
-.vname{flex:1;font-weight:600}
+.play.old{background:var(--mute)}
+.play.on{background:var(--bad)}
+.vname{flex:1;font-weight:600}.vname small{font-weight:400;color:var(--mute)}
 .pick{flex:none;display:flex;align-items:center;gap:6px;padding:8px 12px;border:1.5px solid var(--line);border-radius:99px;cursor:pointer;font-size:.9rem;user-select:none;min-height:40px}
 .pick.sel{border-color:var(--pick);background:rgba(244,180,0,.18);font-weight:600}
-.chips{display:flex;flex-wrap:wrap;gap:8px}.chip{min-width:48px;justify-content:center}
+.pick.selbad{border-color:var(--bad);background:rgba(192,57,43,.14);font-weight:600}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
 label.f{display:block;font-weight:600;margin:12px 0 6px}
 textarea,input[type=text]{width:100%;font:inherit;padding:10px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink)}
 textarea{min-height:90px}
@@ -29,37 +34,58 @@ textarea{min-height:90px}
 .primary{background:var(--acc);color:#fff}.soft{background:var(--acc2);color:var(--acc)}
 .bar{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--line);padding:10px 16px calc(10px + env(safe-area-inset-bottom));text-align:center;font-size:.9rem}
 .ok{color:var(--acc);font-weight:600}
+a{color:var(--acc)}
 </style></head><body><main>
 <h1>Kyle in Italian</h1>
-<p class="mute">Voice review · Revisione delle voci</p>
+<p class="mute">Voice D, improved · Voce D, migliorata</p>
+
 <div class="card">
-<p>Kyle is the safety guide of the wastewater-treatment-plant VR training. We need an Italian voice for Kyle. Seven candidate voices (<b>A–G</b>) read the same 8 Italian lines.</p>
-<p>For each line, play the voices and tap <b>★ Best</b> on the one you prefer. Think about: natural Italian pronunciation, clarity, a warm and friendly guide, and how close it sounds to Kyle's English voice below.</p>
-<div class="row first"><button class="play" data-src="a/ref.mp3" aria-label="Play Kyle in English">▶</button><span class="vname">Kyle in English <span class="mute">(the original character)</span></span></div>
+<p><b>Thank you!</b> You chose <b>voice D</b> for all 8 lines, with E as second choice. Voice D is now the voice of Kyle in Italian.</p>
+<h2 style="margin-top:12px">What we fixed</h2>
+<p>In the first version, voice D sometimes <b>read the punctuation aloud</b>. It said <i>“punto”</i> at the end of sentences (for example <i>“…la tua guida per la sicurezza punto…”</i> or <i>“…digestori anaerobici punto punto…”</i>), and once it repeated a phrase (<i>“punto di raccolta punto di raccolta”</i>).</p>
+<p>The cause: the voice engine sometimes treats the full stop at the end of a sentence as a word to pronounce. What we changed:</p>
+<ul>
+<li>Each sentence is now spoken on its own, <b>without the final full stop</b>, and the sentences are joined with a short natural pause. Colons become short pauses. “!” and “?” stay, because they give the right tone.</li>
+<li>Steadier settings, so the voice no longer repeats words.</li>
+<li>Each line is recorded <b>four times</b>. Automatic speech recognition checks every take, and the clearest one is kept. A take that says “punto” or “virgola” where the text does not is never used.</li>
+</ul>
+<div class="stat">
+<div><b>13% → 1%</b><span>words not recognised, measured by automatic speech recognition</span></div>
+<div><b>0 of 32</b><span>takes that say the punctuation (it was 7 of 8 lines)</span></div>
 </div>
+<p class="mute">The only “punto” left is the real one in <i>“punto di raccolta”</i>. The 1% is not a real error either: the recogniser writes “ventimila” as the digits 20.000.</p>
+<p class="mute" lang="it"><b>In breve:</b> nella prima versione la voce D a volte pronunciava la punteggiatura (“punto”) e ripeteva qualche parola. Ora ogni frase viene letta separatamente, senza il punto finale, con una breve pausa tra le frasi; ogni battuta è registrata quattro volte e viene tenuta la versione più chiara. Ascolta il prima e il dopo qui sotto.</p>
+</div>
+
+<div class="card">
+<h2>Please listen</h2>
+<p>For each line, play <b>Before</b> (grey) and <b>Improved</b> (green), then tap <b>✓ OK</b> or <b>✗ Still wrong</b> for the improved version.</p>
+<div class="row first"><button class="play" data-src="a/ref.mp3" aria-label="Play Kyle in English">▶</button><span class="vname">Kyle in English <small>(the original character)</small></span></div>
+</div>
+
 <div id="lines"></div>
+
 <div class="card">
 <h2>Overall</h2>
-<label class="f">Your favourite voice for Kyle</label><div class="chips" id="fav1"></div>
-<label class="f">Second choice</label><div class="chips" id="fav2"></div>
-<label class="f">Any voice that is clearly not acceptable?</label><div class="chips" id="bad"></div>
-<label class="f" for="cm">Comments (pronunciation, tone, anything)</label>
+<label class="f">Can we use the improved voice D for all of Kyle's Italian lines (about 2,500)?</label>
+<div class="chips" id="go"></div>
+<label class="f" for="cm">Comments (pronunciation, pauses, tone, anything)</label>
 <textarea id="cm" placeholder="Commenti…"></textarea>
 <label class="f" for="nm">Your name</label><input type="text" id="nm" autocomplete="name">
-<button class="btn primary" id="send">✉️ Send my choices</button>
-<button class="btn soft" id="copy">Copy my choices</button>
+<button class="btn primary" id="send">✉️ Send my answers</button>
+<button class="btn soft" id="copy">Copy my answers</button>
 <p class="mute" id="msg"></p>
 </div>
+<p class="mute" style="text-align:center"><a href="v1.html">The first comparison of all seven voices (A–G)</a></p>
 </main>
 <div class="bar"><span id="prog"></span></div>
 <audio id="au" preload="none"></audio>
 <script>
 const EMAIL = "daudtasleem215@gmail.com";
 const LINES = [{"id": "ddafd48efc8592a4", "t": "Sono Kyle, la tua guida per la sicurezza. Che bello averti qui!"}, {"id": "x01", "t": "Buongiorno! Oggi visitiamo il depuratore: ventimila metri cubi d'acqua al giorno, trattati prima di tornare nel fiume."}, {"id": "y05", "t": "Prossima tappa: i sedimentatori primari. Vuoi che ti ci porti?"}, {"id": "y06", "t": "Attenzione! Rastrelli, catene, carriponte raschiatori e motoriduttori possono afferrare mani e vestiti."}, {"id": "41cd5ac90cacd633", "t": "Resta dietro le barriere e la linea rossa, tieni mascherina e occhiali vicino alle griglie e alle vasche di aerazione, non toccare niente e lavati le mani quando esci."}, {"id": "040db4cdaa676cef", "t": "Infine l'acqua viene disinfettata con ipoclorito di sodio, dosato in una vasca dedicata, così i microrganismi vengono eliminati prima che l'effluente depurato torni nel fiume."}, {"id": "x02", "t": "Attenzione! Fuga di biogas ai digestori anaerobici. Fermate il lavoro e raggiungete con calma il punto di raccolta."}, {"id": "y04", "t": "Non adesso: prima pensiamo all'emergenza."}];
-const V = ["A","B","C","D","E","F","G"];
-let S = {}; try { S = JSON.parse(localStorage.getItem("kyleIT") || "{}"); } catch(e) {}
-S.best = S.best || {}; S.bad = S.bad || [];
-const save = () => { try { localStorage.setItem("kyleIT", JSON.stringify(S)); } catch(e) {} prog(); };
+let S = {}; try { S = JSON.parse(localStorage.getItem("kyleIT2") || "{}"); } catch(e) {}
+S.ok = S.ok || {};
+const save = () => { try { localStorage.setItem("kyleIT2", JSON.stringify(S)); } catch(e) {} prog(); };
 const au = document.getElementById("au"); let cur = null;
 function stop(){ if(cur){ cur.classList.remove("on"); cur.textContent="▶"; cur=null; } au.pause(); }
 document.addEventListener("click", e => {
@@ -72,35 +98,30 @@ const box = document.getElementById("lines");
 LINES.forEach((l, n) => {
   const c = document.createElement("div"); c.className = "card";
   c.innerHTML = '<span class="num">Line ' + (n+1) + ' of ' + LINES.length + '</span><p class="it">“' + l.t + '”</p>' +
-    V.map((v, i) => '<div class="row' + (i ? '' : ' first') + '"><button class="play" data-src="a/' + v + '_' + l.id + '.mp3" aria-label="Play voice ' + v + '">▶</button>' +
-      '<span class="vname">Voice ' + v + '</span><span class="pick" data-l="' + l.id + '" data-v="' + v + '">★ Best</span></div>').join("");
+    '<div class="row first"><button class="play old" data-src="a/D_' + l.id + '.mp3" aria-label="Play before">▶</button><span class="vname">Before <small>(first version)</small></span></div>' +
+    '<div class="row"><button class="play" data-src="a/D2_' + l.id + '.mp3" aria-label="Play improved">▶</button><span class="vname">Improved</span>' +
+    '<span class="pick" data-l="' + l.id + '" data-v="ok">✓ OK</span><span class="pick" data-l="' + l.id + '" data-v="no">✗ Still wrong</span></div>';
   box.appendChild(c);
 });
-function paintPicks(){ document.querySelectorAll(".pick[data-l]").forEach(p => p.classList.toggle("sel", S.best[p.dataset.l] === p.dataset.v)); }
-box.addEventListener("click", e => { const p = e.target.closest(".pick"); if(!p) return; S.best[p.dataset.l] = p.dataset.v; paintPicks(); save(); });
-function chips(id, key, multi){
-  const el = document.getElementById(id);
-  el.innerHTML = V.map(v => '<span class="pick chip" data-v="' + v + '">' + v + '</span>').join("") + (multi ? '<span class="pick chip" data-v="none">None</span>' : "");
-  const paint = () => el.querySelectorAll(".pick").forEach(p => p.classList.toggle("sel", multi ? S[key].includes(p.dataset.v) : S[key] === p.dataset.v));
-  el.addEventListener("click", e => { const p = e.target.closest(".pick"); if(!p) return; const v = p.dataset.v;
-    if (multi) { if (v === "none") S[key] = ["none"]; else { S[key] = S[key].filter(x => x !== "none"); S[key] = S[key].includes(v) ? S[key].filter(x => x !== v) : S[key].concat([v]); } }
-    else S[key] = S[key] === v ? null : v;
-    paint(); save(); });
-  paint();
-}
-chips("fav1","fav1",false); chips("fav2","fav2",false); chips("bad","bad",true);
+function paint(){ document.querySelectorAll(".pick[data-l]").forEach(p => { const v = S.ok[p.dataset.l]; p.classList.toggle("sel", v === "ok" && p.dataset.v === "ok"); p.classList.toggle("selbad", v === "no" && p.dataset.v === "no"); }); }
+box.addEventListener("click", e => { const p = e.target.closest(".pick"); if(!p) return; S.ok[p.dataset.l] = S.ok[p.dataset.l] === p.dataset.v ? undefined : p.dataset.v; if (!S.ok[p.dataset.l]) delete S.ok[p.dataset.l]; paint(); save(); });
+const go = document.getElementById("go");
+go.innerHTML = [["yes","Yes, use it"],["fix","Yes, after small fixes"],["no","No"]].map(x => '<span class="pick" data-v="' + x[0] + '">' + x[1] + '</span>').join("");
+function paintGo(){ go.querySelectorAll(".pick").forEach(p => p.classList.toggle("sel", S.go === p.dataset.v)); }
+go.addEventListener("click", e => { const p = e.target.closest(".pick"); if(!p) return; S.go = S.go === p.dataset.v ? null : p.dataset.v; paintGo(); save(); });
 const cm = document.getElementById("cm"), nm = document.getElementById("nm");
 cm.value = S.cm || ""; nm.value = S.nm || "";
 cm.oninput = () => { S.cm = cm.value; save(); }; nm.oninput = () => { S.nm = nm.value; save(); };
-function prog(){ const n = Object.keys(S.best).length; document.getElementById("prog").innerHTML = (n === LINES.length && S.fav1) ? '<span class="ok">All done – tap “Send my choices”</span>' : ('Lines rated: ' + n + ' / ' + LINES.length + (S.fav1 ? '' : ' · favourite not chosen yet')); }
+const GO = {yes: "Yes, use it", fix: "Yes, after small fixes", no: "No"};
+function prog(){ const n = Object.keys(S.ok).length; document.getElementById("prog").innerHTML = (n === LINES.length && S.go) ? '<span class="ok">All done – tap “Send my answers”</span>' : ('Lines checked: ' + n + ' / ' + LINES.length + (S.go ? '' : ' · overall answer not chosen yet')); }
 function summary(){
-  const t = ["Kyle Italian voice review – " + (S.nm || "(no name)"), ""];
-  LINES.forEach((l, n) => t.push("Line " + (n+1) + " [" + l.id + "]: best = " + (S.best[l.id] || "-")));
-  t.push("", "Favourite: " + (S.fav1 || "-"), "Second: " + (S.fav2 || "-"), "Not acceptable: " + ((S.bad || []).join(", ") || "-"), "", "Comments: " + (S.cm || "-"));
+  const t = ["Kyle Italian voice D (improved) – " + (S.nm || "(no name)"), ""];
+  LINES.forEach((l, n) => t.push("Line " + (n+1) + " [" + l.id + "]: " + (S.ok[l.id] === "ok" ? "OK" : S.ok[l.id] === "no" ? "STILL WRONG" : "-")));
+  t.push("", "Use improved D for all lines: " + (GO[S.go] || "-"), "", "Comments: " + (S.cm || "-"));
   return t.join("\n");
 }
 const msg = document.getElementById("msg");
-document.getElementById("send").onclick = () => { location.href = "mailto:" + EMAIL + "?subject=" + encodeURIComponent("Kyle Italian voice review") + "&body=" + encodeURIComponent(summary()); };
+document.getElementById("send").onclick = () => { location.href = "mailto:" + EMAIL + "?subject=" + encodeURIComponent("Kyle Italian voice D – improved") + "&body=" + encodeURIComponent(summary()); };
 document.getElementById("copy").onclick = async () => { try { await navigator.clipboard.writeText(summary()); msg.textContent = "Copied – paste it in a message."; } catch(e) { msg.textContent = summary(); } };
-paintPicks(); prog();
+paint(); paintGo(); prog();
 </script></body></html>
