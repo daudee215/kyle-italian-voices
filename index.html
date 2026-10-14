@@ -54,12 +54,12 @@ a{color:var(--acc)}
 <div><b>0 of 32</b><span>takes that say the punctuation (it was 7 of 8 lines)</span></div>
 </div>
 <p class="mute">The only “punto” left is the real one in <i>“punto di raccolta”</i>. The 1% is not a real error either: the recogniser writes “ventimila” as the digits 20.000.</p>
-<p class="mute" lang="it"><b>In breve:</b> nella prima versione la voce D a volte pronunciava la punteggiatura (“punto”) e ripeteva qualche parola. Ora ogni frase viene letta separatamente, senza il punto finale, con una breve pausa tra le frasi; ogni battuta è registrata quattro volte e viene tenuta la versione più chiara. Ascolta il prima e il dopo qui sotto.</p>
+<p class="mute" lang="it"><b>In breve:</b> nella prima versione la voce D a volte pronunciava la punteggiatura (“punto”) e ripeteva qualche parola. Ora ogni frase viene letta separatamente, senza il punto finale, con una breve pausa tra le frasi; ogni battuta è registrata quattro volte e viene tenuta la versione più chiara. Ascolta la nuova versione qui sotto.</p>
 </div>
 
 <div class="card">
 <h2>Please listen</h2>
-<p>For each line, play <b>Before</b> (grey) and <b>Improved</b> (green), then tap <b>✓ OK</b> or <b>✗ Still wrong</b> for the improved version.</p>
+<p>For each line, play the improved voice, then tap <b>✓ OK</b> or <b>✗ Still wrong</b>.</p>
 <div class="row first"><button class="play" data-src="a/ref.mp3" aria-label="Play Kyle in English">▶</button><span class="vname">Kyle in English <small>(the original character)</small></span></div>
 </div>
 
@@ -76,7 +76,6 @@ a{color:var(--acc)}
 <button class="btn soft" id="copy">Copy my answers</button>
 <p class="mute" id="msg"></p>
 </div>
-<p class="mute" style="text-align:center"><a href="v1.html">The first comparison of all seven voices (A–G)</a></p>
 </main>
 <div class="bar"><span id="prog"></span></div>
 <audio id="au" preload="none"></audio>
@@ -98,8 +97,7 @@ const box = document.getElementById("lines");
 LINES.forEach((l, n) => {
   const c = document.createElement("div"); c.className = "card";
   c.innerHTML = '<span class="num">Line ' + (n+1) + ' of ' + LINES.length + '</span><p class="it">“' + l.t + '”</p>' +
-    '<div class="row first"><button class="play old" data-src="a/D_' + l.id + '.mp3" aria-label="Play before">▶</button><span class="vname">Before <small>(first version)</small></span></div>' +
-    '<div class="row"><button class="play" data-src="a/D2_' + l.id + '.mp3" aria-label="Play improved">▶</button><span class="vname">Improved</span>' +
+    '<div class="row first"><button class="play" data-src="a/D2_' + l.id + '.mp3" aria-label="Play Kyle">▶</button><span class="vname">Kyle</span>' +
     '<span class="pick" data-l="' + l.id + '" data-v="ok">✓ OK</span><span class="pick" data-l="' + l.id + '" data-v="no">✗ Still wrong</span></div>';
   box.appendChild(c);
 });
