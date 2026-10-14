@@ -37,24 +37,24 @@ textarea{min-height:90px}
 a{color:var(--acc)}
 </style></head><body><main>
 <h1>Kyle in Italian</h1>
-<p class="mute">Voice D, improved · Voce D, migliorata</p>
+<p class="mute">Voice D, version 3 · Voce D, versione 3</p>
 
 <div class="card">
-<p><b>Thank you!</b> You chose <b>voice D</b> for all 8 lines, with E as second choice. Voice D is now the voice of Kyle in Italian.</p>
-<h2 style="margin-top:12px">What we fixed</h2>
-<p>In the first version, voice D sometimes <b>read the punctuation aloud</b>. It said <i>“punto”</i> at the end of sentences (for example <i>“…la tua guida per la sicurezza punto…”</i> or <i>“…digestori anaerobici punto punto…”</i>), and once it repeated a phrase (<i>“punto di raccolta punto di raccolta”</i>).</p>
-<p>The cause: the voice engine sometimes treats the full stop at the end of a sentence as a word to pronounce. What we changed:</p>
+<p><b>Thank you for the review!</b> You marked lines 2, 5 and 7 as still wrong, especially <i>“Buongiorno”</i>, <i>“anaerobici”</i> and <i>“esci”</i>. This is the new version of voice D for all 8 lines.</p>
+<h2 style="margin-top:12px">What we fixed this time</h2>
+<p>Removing the final full stop stopped the spoken “punto”, but it made the voice end each sentence too early: the last word was rushed or cut (<i>“esci”</i>, <i>“anaerobici”</i>), and <i>“Buongiorno!”</i> was spoken alone, which this voice engine does badly with very short phrases.</p>
 <ul>
-<li>Each sentence is now spoken on its own, <b>without the final full stop</b>, and the sentences are joined with a short natural pause. Colons become short pauses. “!” and “?” stay, because they give the right tone.</li>
-<li>Steadier settings, so the voice no longer repeats words.</li>
-<li>Each line is recorded <b>four times</b>. Automatic speech recognition checks every take, and the clearest one is kept. A take that says “punto” or “virgola” where the text does not is never used.</li>
+<li><b>Short phrases are no longer spoken alone.</b> <i>“Buongiorno!”</i> now flows into the rest of the sentence, as a person would say it.</li>
+<li><b>Three sentence endings tested on every line</b> (none, full stop, “…”). The full stop brought “punto” back in one take out of three, so those takes were thrown away; the soft “…” never did and gave the clearest last words.</li>
+<li>Some takes also listened to <b>Italian samples of the same voice</b>, for a more natural Italian accent.</li>
+<li>Every take was checked word by word, including the <b>last word of each sentence</b>. For each line the best of 18 takes was kept.</li>
+<li>A slightly longer silence after each line, so the end is not clipped.</li>
 </ul>
 <div class="stat">
-<div><b>13% → 1%</b><span>words not recognised, measured by automatic speech recognition</span></div>
-<div><b>0 of 32</b><span>takes that say the punctuation (it was 7 of 8 lines)</span></div>
+<div><b>0.30 s → 0.48 s</b><span>length of “esci”, no longer cut</span></div>
+<div><b>0 of 8</b><span>lines that say the punctuation</span></div>
 </div>
-<p class="mute">The only “punto” left is the real one in <i>“punto di raccolta”</i>. The 1% is not a real error either: the recogniser writes “ventimila” as the digits 20.000.</p>
-<p class="mute" lang="it"><b>In breve:</b> nella prima versione la voce D a volte pronunciava la punteggiatura (“punto”) e ripeteva qualche parola. Ora ogni frase viene letta separatamente, senza il punto finale, con una breve pausa tra le frasi; ogni battuta è registrata quattro volte e viene tenuta la versione più chiara. Ascolta la nuova versione qui sotto.</p>
+<p class="mute" lang="it"><b>In breve:</b> nella versione precedente l'ultima parola della frase era troppo veloce o tagliata (“esci”, “anaerobici”) e “Buongiorno!” veniva detto da solo. Ora le frasi brevi non sono più lette da sole, ogni frase finisce in modo naturale, e per ogni battuta abbiamo scelto la migliore tra 18 registrazioni, controllando la chiarezza di ogni parola.</p>
 </div>
 
 <div class="card">
@@ -82,9 +82,9 @@ a{color:var(--acc)}
 <script>
 const EMAIL = "daudtasleem215@gmail.com";
 const LINES = [{"id": "ddafd48efc8592a4", "t": "Sono Kyle, la tua guida per la sicurezza. Che bello averti qui!"}, {"id": "x01", "t": "Buongiorno! Oggi visitiamo il depuratore: ventimila metri cubi d'acqua al giorno, trattati prima di tornare nel fiume."}, {"id": "y05", "t": "Prossima tappa: i sedimentatori primari. Vuoi che ti ci porti?"}, {"id": "y06", "t": "Attenzione! Rastrelli, catene, carriponte raschiatori e motoriduttori possono afferrare mani e vestiti."}, {"id": "41cd5ac90cacd633", "t": "Resta dietro le barriere e la linea rossa, tieni mascherina e occhiali vicino alle griglie e alle vasche di aerazione, non toccare niente e lavati le mani quando esci."}, {"id": "040db4cdaa676cef", "t": "Infine l'acqua viene disinfettata con ipoclorito di sodio, dosato in una vasca dedicata, così i microrganismi vengono eliminati prima che l'effluente depurato torni nel fiume."}, {"id": "x02", "t": "Attenzione! Fuga di biogas ai digestori anaerobici. Fermate il lavoro e raggiungete con calma il punto di raccolta."}, {"id": "y04", "t": "Non adesso: prima pensiamo all'emergenza."}];
-let S = {}; try { S = JSON.parse(localStorage.getItem("kyleIT2") || "{}"); } catch(e) {}
+let S = {}; try { S = JSON.parse(localStorage.getItem("kyleIT3") || "{}"); } catch(e) {}
 S.ok = S.ok || {};
-const save = () => { try { localStorage.setItem("kyleIT2", JSON.stringify(S)); } catch(e) {} prog(); };
+const save = () => { try { localStorage.setItem("kyleIT3", JSON.stringify(S)); } catch(e) {} prog(); };
 const au = document.getElementById("au"); let cur = null;
 function stop(){ if(cur){ cur.classList.remove("on"); cur.textContent="▶"; cur=null; } au.pause(); }
 document.addEventListener("click", e => {
@@ -97,7 +97,7 @@ const box = document.getElementById("lines");
 LINES.forEach((l, n) => {
   const c = document.createElement("div"); c.className = "card";
   c.innerHTML = '<span class="num">Line ' + (n+1) + ' of ' + LINES.length + '</span><p class="it">“' + l.t + '”</p>' +
-    '<div class="row first"><button class="play" data-src="a/D2_' + l.id + '.mp3" aria-label="Play Kyle">▶</button><span class="vname">Kyle</span>' +
+    '<div class="row first"><button class="play" data-src="a/D3_' + l.id + '.mp3" aria-label="Play Kyle">▶</button><span class="vname">Kyle</span>' +
     '<span class="pick" data-l="' + l.id + '" data-v="ok">✓ OK</span><span class="pick" data-l="' + l.id + '" data-v="no">✗ Still wrong</span></div>';
   box.appendChild(c);
 });
@@ -113,13 +113,13 @@ cm.oninput = () => { S.cm = cm.value; save(); }; nm.oninput = () => { S.nm = nm.
 const GO = {yes: "Yes, use it", fix: "Yes, after small fixes", no: "No"};
 function prog(){ const n = Object.keys(S.ok).length; document.getElementById("prog").innerHTML = (n === LINES.length && S.go) ? '<span class="ok">All done – tap “Send my answers”</span>' : ('Lines checked: ' + n + ' / ' + LINES.length + (S.go ? '' : ' · overall answer not chosen yet')); }
 function summary(){
-  const t = ["Kyle Italian voice D (improved) – " + (S.nm || "(no name)"), ""];
+  const t = ["Kyle Italian voice D (version 3) – " + (S.nm || "(no name)"), ""];
   LINES.forEach((l, n) => t.push("Line " + (n+1) + " [" + l.id + "]: " + (S.ok[l.id] === "ok" ? "OK" : S.ok[l.id] === "no" ? "STILL WRONG" : "-")));
   t.push("", "Use improved D for all lines: " + (GO[S.go] || "-"), "", "Comments: " + (S.cm || "-"));
   return t.join("\n");
 }
 const msg = document.getElementById("msg");
-document.getElementById("send").onclick = () => { location.href = "mailto:" + EMAIL + "?subject=" + encodeURIComponent("Kyle Italian voice D – improved") + "&body=" + encodeURIComponent(summary()); };
+document.getElementById("send").onclick = () => { location.href = "mailto:" + EMAIL + "?subject=" + encodeURIComponent("Kyle Italian voice D – version 3") + "&body=" + encodeURIComponent(summary()); };
 document.getElementById("copy").onclick = async () => { try { await navigator.clipboard.writeText(summary()); msg.textContent = "Copied – paste it in a message."; } catch(e) { msg.textContent = summary(); } };
 paint(); paintGo(); prog();
 </script></body></html>
